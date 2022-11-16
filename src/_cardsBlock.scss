@@ -1,0 +1,36 @@
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	padding-block: 80px;
+
+	&__item {
+	}
+}
+.card {
+	&__img {
+		padding: 20px;
+		height: 250px;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	&__body {
+	}
+
+	&__title {
+		margin-bottom: 1em;
+		line-height: 1.2em;
+		height: calc(4 * 1.3em);
+		overflow-y: auto;
+	}
+
+	&__text {
+		line-height: 1.2em;
+		max-height: calc(4 * 1.2em);
+		overflow-y: auto;
+	}
+
+	&__btn {
+	}
+}

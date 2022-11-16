@@ -1,0 +1,234 @@
+html,
+body {
+  height: 100%;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  height: 50px;
+  background-color: #8f8f8f;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-block: 80px;
+}
+.card__img {
+  padding: 20px;
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.card__title {
+  margin-bottom: 1em;
+  line-height: 1.2em;
+  height: 5.2em;
+  overflow-y: auto;
+}
+.card__text {
+  line-height: 1.2em;
+  max-height: 4.8em;
+  overflow-y: auto;
+}
+@-webkit-keyframes modalOpen {
+  0% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-20vh);
+  }
+  65% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-10vh);
+  }
+  82% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-5vh);
+  }
+  93% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-3vh);
+  }
+  25%, 55%, 75%, 87% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+  100% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes modalOpen {
+  0% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-20vh);
+  }
+  65% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-10vh);
+  }
+  82% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-5vh);
+  }
+  93% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    transform: translateY(-3vh);
+  }
+  25%, 55%, 75%, 87% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    transform: translateY(0px);
+  }
+  100% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes modalClose {
+  0% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-540deg) scale(2);
+  }
+}
+@keyframes modalClose {
+  0% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-540deg) scale(2);
+  }
+}
+.c-modal.open > [class$=__overlay], .c-modal.hide > [class$=__overlay] {
+  z-index: 100;
+}
+.c-modal.open [class$=__overlay] > [class$=__window], .c-modal.hide [class$=__overlay] > [class$=__window] {
+  opacity: 1;
+}
+.c-modal.open > [class$=__overlay] {
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 2s ease;
+}
+.c-modal.open [class$=__overlay] > [class$=__window] {
+  -webkit-animation: modalOpen 2s ease-in-out 0s 1 normal forwards;
+          animation: modalOpen 2s ease-in-out 0s 1 normal forwards;
+}
+.c-modal.hide [class$=__overlay] > [class$=__window] {
+  -webkit-animation: modalClose 1s ease-in-out 0s 1 normal forwards;
+          animation: modalClose 1s ease-in-out 0s 1 normal forwards;
+}
+.c-modal__overlay {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 1s ease-in-out;
+}
+.c-modal__window {
+  opacity: 0;
+  min-width: 500px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.c-modal__header, .c-modal__body, .c-modal__footer {
+  padding: 20px 30px;
+}
+.c-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+}
+.c-modal__title {
+  max-width: 400px;
+}
+.c-modal__close {
+  font-size: 36px;
+  line-height: 70%;
+  overflow: hidden;
+  font-weight: 700;
+  cursor: pointer;
+}
+.c-modal__body {
+  display: flex;
+  gap: 30px;
+}
+.c-modal__body-img {
+  height: 200px;
+  width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.c-modal__body-content {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.c-modal__body-description {
+  max-height: 200px;
+  overflow: auto;
+}
+.c-modal__p {
+  font-size: 20px;
+}
+.c-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.336);
+}
